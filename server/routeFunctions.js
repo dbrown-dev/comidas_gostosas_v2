@@ -18,12 +18,19 @@ const sendJSONResponseError = curry((errorCode, errorMessage, res, err) =>
 const returnInternalServerError = sendJSONResponseError('500', getDBErrorMessage);
 
 // Route functions for express server promises with error handeling done here
-const DbSelectAndResponse = curry((tableName, req, res) => {
+const getDBSelectAndResponse = curry((tableName, req, res) => {
   selectTableProd(tableName)
     .then(sendJSONResponseValid(res))
     .catch(returnInternalServerError(res));
 });
 
+const getDBFullQueryAndResponse = curry((dbFunc, req, res) => {
+  dbFunc(req.params.id ? Number(req.params.id) : null)
+    .then(sendJSONResponseValid(res))
+    .catch(returnInternalServerError(res));
+});
+
 module.exports = {
-  DbSelectAndResponse
+  getDBSelectAndResponse,
+  getDBFullQueryAndResponse
 };

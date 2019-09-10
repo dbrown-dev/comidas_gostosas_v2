@@ -62,9 +62,24 @@ const getRecipeIngredients = (id, db = database) => {
     .where('recipes.id', id);
 };
 
+const getFullRecipeDetailsById = (id, db = database) => {
+  return getRecipeSummaries(id, db).then(summary => {
+    return getRecipeInstructions(id, db).then(instructions => {
+      return getRecipeIngredients(id, db).then(ingredients => {
+        return Object.freeze({
+          ...summary,
+          instructions,
+          ingredients
+        });
+      });
+    });
+  });
+};
+
 module.exports = {
   selectTableProd,
   getRecipeSummaries,
   getRecipeInstructions,
-  getRecipeIngredients
+  getRecipeIngredients,
+  getFullRecipeDetailsById
 };
