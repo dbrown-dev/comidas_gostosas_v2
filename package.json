@@ -16,7 +16,7 @@
   "scripts": {
     "start": "node server",
     "dev": "run-p dev-*",
-    "dev-server": "nodemon --watch server | pino-colada",
+    "dev-server": "nodemon server --watch | pino-colada",
     "dev-watch": "webpack --watch",
     "test": "jest --verbose",
     "knex": "knex --knexfile server/db/knexfile.js",
@@ -44,12 +44,6 @@
     ]
   },
   "devDependencies": {
-    "@babel/core": "^7.6.0",
-    "@babel/plugin-proposal-object-rest-spread": "^7.5.5",
-    "@babel/preset-env": "^7.6.0",
-    "@babel/preset-react": "^7.0.0",
-    "babel-loader": "^8.0.6",
-    "babel-plugin-styled-components": "^1.10.6",
     "eslint": "^6.3.0",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-config-prettier": "^6.2.0",
@@ -62,20 +56,18 @@
     "nodemon": "^1.19.2",
     "pino-colada": "^1.4.5",
     "prettier": "^1.18.2",
-    "prop-types": "^15.7.2",
-    "react-dom": "^16.9.0",
-    "react-redux": "^7.1.1",
-    "react-router-dom": "^5.0.1",
-    "redux": "^4.0.4",
-    "redux-thunk": "^2.3.0",
     "stylelint": "^10.1.0",
     "stylelint-config-recommended": "^2.2.0",
     "stylelint-config-styled-components": "^0.1.1",
-    "stylelint-processor-styled-components": "^1.8.0",
-    "webpack": "^4.39.3",
-    "webpack-cli": "^3.3.8"
+    "stylelint-processor-styled-components": "^1.8.0"
   },
   "dependencies": {
+    "@babel/core": "^7.6.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.5.5",
+    "@babel/preset-env": "^7.6.0",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.6",
+    "babel-plugin-styled-components": "^1.10.6",
     "dotenv": "^8.1.0",
     "dotenv-webpack": "^1.7.0",
     "express": "^4.17.1",
@@ -87,6 +79,14 @@
     "react": "^16.9.0",
     "sqlite3": "^4.1.0",
     "styled-components": "^4.3.2",
-    "superagent": "^5.1.0"
+    "superagent": "^5.1.0",
+    "prop-types": "^15.7.2",
+    "react-dom": "^16.9.0",
+    "react-redux": "^7.1.1",
+    "react-router-dom": "^5.0.1",
+    "redux": "^4.0.4",
+    "redux-thunk": "^2.3.0",
+    "webpack": "^4.39.3",
+    "webpack-cli": "^3.3.8"
   }
 }
