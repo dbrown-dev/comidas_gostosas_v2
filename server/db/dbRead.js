@@ -23,7 +23,7 @@ const getRecipeSummaries = (id, db = database) => {
       'recipes.rating',
       'recipes.image',
       'cook_times.label as cookTime',
-      db.raw('GROUP_CONCAT(cuisine_categories.label, "@") cuisine_categories')
+      db.raw('GROUP_CONCAT(cuisine_categories.label, "@") cuisineCategories')
     )
     .orderBy('recipes.id')
     .groupBy('recipes.id')

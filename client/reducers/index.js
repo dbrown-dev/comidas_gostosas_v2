@@ -1,3 +1,9 @@
 import { combineReducers } from 'redux';
 
-export default combineReducers({});
+import recipesList from './recipesList';
+import error from './error';
+
+export default combineReducers({
+  error,
+  recipesList
+});
