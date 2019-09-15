@@ -1,16 +1,32 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Card, CardContent, CardImg, CardTitle } from './styled_components';
+import { Card, CardContent, CardImg, CardTitle, Bold } from './styled_components';
 
-const RecipeCard = ({ recipe }) => (
+const convertCuisineCategories = cuisineCategories => {
+  return cuisineCategories.split('@').join(', ');
+};
+
+const RecipeCard = ({ recipe: { image, title, season, rating, cookTime, cuisineCategories } }) => (
   <Card>
-    <CardImg src={recipe.image} />
-    <CardTitle>{recipe.title}</CardTitle>
-    <CardContent>{recipe.season}</CardContent>
-    <CardContent>{recipe.rating}</CardContent>
-    <CardContent>{recipe.cookTime}</CardContent>
-    <CardContent>{recipe.cuisineCategories}</CardContent>
+    <CardTitle>{title}</CardTitle>
+    <CardImg src={image} />
+    <CardContent>
+      <Bold>Season: </Bold>
+      {season}
+    </CardContent>
+    <CardContent>
+      <Bold>Rating: </Bold>
+      {rating}
+    </CardContent>
+    <CardContent>
+      <Bold>Cooking Time: </Bold>
+      {cookTime}
+    </CardContent>
+    <CardContent>
+      <Bold>Categories: </Bold>
+      {convertCuisineCategories(cuisineCategories)}
+    </CardContent>
   </Card>
 );
 
