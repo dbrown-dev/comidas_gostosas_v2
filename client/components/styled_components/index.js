@@ -7,3 +7,5 @@ export { default as CardTitle } from './CardTitle';
 export { default as CardContent } from './CardContent';
 export { default as CardImg } from './CardImg';
 export { default as Bold } from './Bold';
+export { default as MultiSelectInput } from './MultiSelectInput';
+export { default as MultiSelectOption } from './MultiSelectOption';

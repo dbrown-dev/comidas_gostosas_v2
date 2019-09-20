@@ -1,6 +1,7 @@
 import { showError } from './showError';
 import { makeAPICall } from './api';
 
+// requestAction :: a => {a}
 export const requestAction = type => Object.freeze({ type });
 
 export const receiveAction = type => data => Object.freeze({ type, data });
